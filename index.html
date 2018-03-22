@@ -1,5 +1,13 @@
 <button onclick="window.postMessage("upload button clicked")">Upload</button>
 
+<script>
+  document.querySelector("button").onclick = function() {
+    console.log("Send post message");
+    window.postMessage("Hello React", "*");
+  }
+  window.postMessage("Sending data from WebView");
+</script>
+
 <!-- <form method="post" enctype="multipart/form-data" action="/upload">
  <div>
    <label for="file">Choose file to upload</label>
