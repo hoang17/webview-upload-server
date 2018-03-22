@@ -1,11 +1,13 @@
-<button onclick="window.postMessage("upload button clicked")">Upload</button>
+Select file
+<button onclick="window.postMessage('upload_file')">Upload</button>
+<a id="open_link" href="#" onclick="window.postMessage('open_link')"></a>
 
 <script>
-  document.querySelector("button").onclick = function() {
-    console.log("Send post message");
-    window.postMessage("Hello React", "*");
-  }
-  window.postMessage("Sending data from WebView");
+  document.addEventListener("message", function(data) {
+    var fileName = data.data
+    var e = document.getElementById('open_link')
+    e.innerHTML = fileName
+  })
 </script>
 
 <!-- <form method="post" enctype="multipart/form-data" action="/upload">
